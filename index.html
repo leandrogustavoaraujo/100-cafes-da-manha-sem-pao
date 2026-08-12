@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Cafés da Manhã Sem Pão | Receitas práticas para variar sua manhã</title>
+<meta name="description" content="100 receitas doces e salgadas para variar o café da manhã sem depender do pão. Rápidas, práticas e com informações nutricionais aproximadas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CONFIG VISUAL — tokens de design
+   ============================================================ */
+:root{
+  --bg:#F8F3EA;
+  --bg-soft:#FBF8F2;
+  --dark-green:#173E2A;
+  --dark-green-2:#0F2E1D;
+  --green-cta:#20B75A;
+  --green-cta-dark:#189248;
+  --terracotta:#E8532F;
+  --terracotta-dark:#C7431F;
+  --text:#26231F;
+  --text-soft:#635C50;
+  --text-mute:#8A8272;
+  --card-bg:#FFFFFF;
+  --card-border:#E8E1D7;
+  --gold:#E3A93A;
+  --ph-bg:#EFE8DA;
+  --ph-bg-2:#E6DDCB;
+  --radius-lg:22px;
+  --radius-md:16px;
+  --radius-sm:10px;
+  --shadow-soft: 0 16px 36px -16px rgba(23,62,42,0.24);
+  --shadow-card: 0 10px 26px -14px rgba(38,35,31,0.18);
+  --shadow-card-lg: 0 22px 48px -20px rgba(38,35,31,0.24);
+  --maxw:1180px;
+  --ease: cubic-bezier(.2,.7,.3,1);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Manrope',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,.headline{
+  font-family:'Anton',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.3px;
+  line-height:1.05;
+  font-weight:400;
+  margin:0;
+}
+p{margin:0;line-height:1.6;color:var(--text-soft);font-weight:400;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+.section{padding:80px 0;}
+.section + .section{border-top:1px solid rgba(23,62,42,0.06);}
+.center{text-align:center;}
+.eyebrow{
+  font-family:'Manrope',sans-serif;
+  font-size:12.5px;
+  letter-spacing:2.2px;
+  color:var(--terracotta);
+  text-transform:uppercase;
+  font-weight:800;
+}
+.accent-green{color:var(--dark-green);}
+.accent-terra{color:var(--terracotta);}
+.accent-live{color:var(--green-cta);}
+.divider{width:56px;height:3px;background:var(--terracotta);border-radius:100px;margin:18px auto 0;}
+
+.fade-up{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.fade-up.in{opacity:1;transform:translateY(0);}
+
+/* Efeito cascata — cards revelam em sequência dentro de cada grid */
+.id-grid > .fade-up:nth-child(1),.benefits-grid > .fade-up:nth-child(1),.gallery-grid > .fade-up:nth-child(1),.bonus-grid > .fade-up:nth-child(1),.testi-grid > .fade-up:nth-child(1),.plans-grid > .fade-up:nth-child(1){transition-delay:0s;}
+.id-grid > .fade-up:nth-child(2),.benefits-grid > .fade-up:nth-child(2),.gallery-grid > .fade-up:nth-child(2),.bonus-grid > .fade-up:nth-child(2),.testi-grid > .fade-up:nth-child(2),.plans-grid > .fade-up:nth-child(2){transition-delay:.06s;}
+.id-grid > .fade-up:nth-child(3),.benefits-grid > .fade-up:nth-child(3),.gallery-grid > .fade-up:nth-child(3),.bonus-grid > .fade-up:nth-child(3),.testi-grid > .fade-up:nth-child(3){transition-delay:.12s;}
+.id-grid > .fade-up:nth-child(4),.benefits-grid > .fade-up:nth-child(4),.gallery-grid > .fade-up:nth-child(4),.bonus-grid > .fade-up:nth-child(4),.testi-grid > .fade-up:nth-child(4){transition-delay:.18s;}
+.id-grid > .fade-up:nth-child(5),.benefits-grid > .fade-up:nth-child(5),.gallery-grid > .fade-up:nth-child(5),.bonus-grid > .fade-up:nth-child(5),.testi-grid > .fade-up:nth-child(5){transition-delay:.24s;}
+.id-grid > .fade-up:nth-child(6),.benefits-grid > .fade-up:nth-child(6),.gallery-grid > .fade-up:nth-child(6),.testi-grid > .fade-up:nth-child(6){transition-delay:.3s;}
+.gallery-grid > .fade-up:nth-child(7){transition-delay:.06s;}
+.gallery-grid > .fade-up:nth-child(8){transition-delay:.12s;}
+.gallery-grid > .fade-up:nth-child(9){transition-delay:.18s;}
+.gallery-grid > .fade-up:nth-child(10){transition-delay:.24s;}
+.gallery-grid > .fade-up:nth-child(11){transition-delay:.3s;}
+.gallery-grid > .fade-up:nth-child(12){transition-delay:.36s;}
+
+/* Brilho sutil nos botões primários — sofisticação no CTA */
+.btn-primary{position:relative;overflow:hidden;}
+.btn-primary::after{
+  content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(115deg,transparent,rgba(255,255,255,0.35),transparent);
+  transform:skewX(-20deg);transition:left .6s var(--ease);
+}
+.btn-primary:hover::after{left:130%;}
+
+/* Contorno com leve gradiente nos cards principais — profundidade premium */
+.recipe-card,.bonus-card,.testi-card,.benefit-card,.id-card{position:relative;}
+
+/* ============================================================
+   PLACEHOLDERS DE IMAGEM
+   Estrutura pronta para receber fotos reais — ver IMAGES {} no JS
+   ============================================================ */
+.ph-frame{
+  position:relative;overflow:hidden;background:
+    repeating-linear-gradient(135deg, var(--ph-bg) 0px, var(--ph-bg) 12px, var(--ph-bg-2) 12px, var(--ph-bg-2) 24px);
+  display:flex;align-items:center;justify-content:center;
+}
+.ph-frame img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+}
+.ph-label{
+  position:relative;z-index:1;text-align:center;padding:14px;
+  font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:0.2px;color:var(--text-mute);text-transform:none;
+  max-width:88%;line-height:1.4;
+}
+.ph-label b{display:block;font-family:'Manrope',sans-serif;font-size:10px;font-weight:800;letter-spacing:1.2px;
+  text-transform:uppercase;color:var(--terracotta);margin-bottom:4px;}
+.ph-frame.loaded .ph-label{display:none;}
+.ph-frame.round{border-radius:50%;}
+.ph-frame.round .ph-label{font-size:9px;padding:6px;}
+
+/* Botões */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:18px 30px;border-radius:100px;
+  font-family:'Manrope',sans-serif;font-size:15px;letter-spacing:0.4px;
+  text-transform:uppercase;font-weight:700;
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
+}
+.btn-primary{
+  background:var(--green-cta);color:#fff;
+  box-shadow:0 12px 28px -10px rgba(32,183,90,0.6);
+}
+.btn-primary:hover{background:var(--green-cta-dark);transform:translateY(-2px);box-shadow:0 16px 32px -10px rgba(32,183,90,0.68);}
+.btn-light{background:#fff;color:var(--terracotta);}
+.btn-light:hover{transform:translateY(-2px);}
+.btn-outline{background:transparent;border:2px solid var(--dark-green);color:var(--dark-green);}
+.btn-outline:hover{background:var(--dark-green);color:#fff;}
+.btn-block{width:100%;}
+
+/* ============================================================
+   01 — BARRA SUPERIOR
+   ============================================================ */
+.promo-bar{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  background:var(--dark-green);color:#fff;
+  font-family:'Manrope',sans-serif;font-size:12.5px;letter-spacing:0.6px;
+  text-transform:uppercase;text-align:center;
+  padding:10px 16px;font-weight:700;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+.promo-bar span.date{opacity:0.75;font-weight:400;margin-left:8px;letter-spacing:0.5px;}
+body{padding-top:40px;}
+@media (max-width:600px){ body{padding-top:56px;} }
+
+/* ============================================================
+   02/03 — HERO
+   ============================================================ */
+.hero{padding:60px 0 44px;position:relative;overflow:hidden;}
+.hero::before{
+  content:"";position:absolute;top:-120px;left:50%;transform:translateX(-50%);
+  width:640px;height:640px;border-radius:50%;
+  background:radial-gradient(circle, rgba(32,183,90,0.10), rgba(232,83,47,0.05) 55%, transparent 72%);
+  pointer-events:none;z-index:0;
+}
+.hero-head{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+.hero h1{font-size:clamp(28px,6.5vw,52px);text-wrap:balance;}
+.hero h1 .hl{color:var(--dark-green);}
+.hero-sub{
+  margin:18px auto 0;max-width:560px;color:var(--text-soft);
+  font-size:17px;font-weight:500;
+}
+
+.hero-visual{
+  max-width:720px;margin:44px auto 0;padding:0 12px;
+  position:relative;z-index:2;
+}
+.hero-product-image{
+  width:100%;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-product-image img{
+  width:100%;height:auto;max-width:100%;object-fit:contain;display:block;
+}
+.hero-product-image.ph-frame{
+  aspect-ratio:4/3;border-radius:var(--radius-lg);
+}
+.hero-product-image.ph-frame .ph-label{font-size:12px;}
+.hero-product-image.ph-frame.loaded{background:transparent;aspect-ratio:auto;}
+.hero-product-image.ph-frame.loaded img{position:static;}
+
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:40px;position:relative;z-index:2;}
+.hero-tag{
+  background:#fff;border:1px solid var(--card-border);border-radius:100px;
+  padding:8px 18px;font-family:'Manrope',sans-serif;font-size:12px;letter-spacing:0.5px;
+  text-transform:uppercase;font-weight:700;color:var(--dark-green);box-shadow:var(--shadow-card);
+}
+
+.price-block{text-align:center;margin-top:40px;position:relative;z-index:2;}
+.price-old{color:var(--text-mute);text-decoration:line-through;font-size:16px;font-family:'Manrope',sans-serif;font-weight:500;}
+.price-new{
+  font-family:'Manrope',sans-serif;font-size:44px;font-weight:800;color:var(--terracotta);
+  margin:4px 0 18px;
+}
+.price-new .price-por{font-family:'Manrope',sans-serif;font-weight:600;}
+.price-new .cur{font-size:22px;font-weight:700;vertical-align:baseline;margin-right:2px;}
+.hero-cta-note{
+  margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;
+  font-size:13px;color:var(--text-mute);font-weight:600;
+}
+
+/* ============================================================
+   04 — INDICADORES
+   ============================================================ */
+.stats-strip{background:#F1E9D6;padding:28px 0;}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:720px;margin:0 auto;
+}
+.stat-box{
+  background:#fff;border-radius:var(--radius-md);padding:18px 8px;text-align:center;
+  box-shadow:var(--shadow-card);
+}
+.stat-box .num{font-family:'Manrope',sans-serif;font-size:25px;font-weight:700;color:var(--terracotta);}
+.stat-box .lbl{font-size:11px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-mute);margin-top:2px;font-weight:600;}
+
+/* ============================================================
+   05 — PROBLEMA
+   ============================================================ */
+.problem-head{max-width:640px;margin:0 auto;}
+.problem-head h2{font-size:clamp(24px,4vw,36px);}
+.problem-head p{margin-top:16px;color:var(--text-soft);font-size:16px;}
+
+/* ============================================================
+   06 — CARDS DE IDENTIFICAÇÃO
+   ============================================================ */
+.id-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:820px;margin:38px auto 0;
+}
+.id-card{
+  background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-md);
+  padding:17px 18px;display:flex;align-items:center;gap:12px;font-size:14.5px;font-weight:700;
+  box-shadow:var(--shadow-card);color:var(--text);
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.id-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-card-lg);}
+.id-card .ico{font-size:21px;flex-shrink:0;}
+
+/* ============================================================
+   07 — TRANSIÇÃO
+   ============================================================ */
+.transition{text-align:center;padding:40px 0;}
+.transition .tag{
+  font-family:'Manrope',sans-serif;font-size:13px;letter-spacing:1.8px;color:var(--terracotta);
+  text-transform:uppercase;font-weight:800;
+}
+.transition .arrow{margin-top:10px;font-size:22px;color:var(--dark-green);}
+
+/* ============================================================
+   08 — OFERTA
+   ============================================================ */
+.offer-box{
+  background:linear-gradient(135deg,var(--terracotta),var(--terracotta-dark));
+  color:#fff;border-radius:var(--radius-lg);padding:32px 28px;text-align:center;
+  max-width:820px;margin:0 auto;box-shadow:var(--shadow-soft);
+}
+.offer-box h3{font-size:clamp(19px,3vw,26px);}
+.offer-box p{margin-top:10px;color:rgba(255,255,255,0.95);font-size:15px;}
+
+/* ============================================================
+   09 — APRESENTAÇÃO ("Por que este guia")
+   ============================================================ */
+.present-section{background:#F1E9D6;}
+.present-copy{max-width:640px;margin:0 auto;}
+.present-copy h2{font-size:clamp(24px,3.6vw,36px);}
+.present-copy .sub{margin-top:14px;font-size:15.5px;}
+
+.benefits-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:48px 0 34px;
+}
+.benefit-card{
+  background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-md);
+  padding:24px 20px;box-shadow:var(--shadow-card);
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.benefit-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card-lg);}
+.benefit-icon{
+  width:34px;height:34px;color:var(--green-cta);margin-bottom:10px;
+}
+.benefit-icon svg{width:100%;height:100%;}
+.benefit-num{
+  font-family:'Manrope',sans-serif;color:var(--green-cta);font-weight:700;font-size:13px;
+  letter-spacing:1px;
+}
+.benefit-card h4{
+  font-family:'Manrope',sans-serif;font-weight:700;text-transform:uppercase;font-size:16px;margin:10px 0 8px;
+  color:var(--dark-green);
+}
+.benefit-card p{font-size:14px;color:var(--text-soft);}
+
+/* ============================================================
+   11 — GALERIA
+   ============================================================ */
+.gallery-head{max-width:640px;margin:0 auto;text-align:center;}
+.gallery-head p{margin-top:14px;color:var(--text-soft);font-size:16px;}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:44px 0 30px;
+}
+.recipe-card{
+  border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow-card);
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+}
+@media(hover:hover){
+  .recipe-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card-lg);}
+}
+.recipe-photo{aspect-ratio:1/0.9;position:relative;border-radius:16px 16px 0 0;}
+.recipe-photo .ph-label{font-size:10px;}
+.recipe-badge{
+  position:absolute;top:10px;right:10px;background:rgba(23,20,15,0.75);color:#fff;
+  font-size:10px;padding:5px 9px;border-radius:100px;font-weight:800;
+  font-family:'Manrope',sans-serif;z-index:2;letter-spacing:0.2px;
+}
+.recipe-info{padding:12px 13px 15px;}
+.recipe-info .name{font-weight:800;font-size:13.5px;color:var(--text);}
+.recipe-info .meta{font-size:11.5px;color:var(--text-mute);margin-top:5px;display:flex;gap:10px;flex-wrap:wrap;font-weight:600;}
+.gallery-more{text-align:center;color:var(--text-mute);font-size:14px;margin:8px 0 28px;font-style:italic;}
+
+/* ============================================================
+   12/13 — BÔNUS
+   ============================================================ */
+.bonus-head{max-width:640px;margin:0 auto;text-align:center;}
+.bonus-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:44px 0 26px;
+}
+.bonus-card{
+  background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-md);
+  padding:18px;display:flex;gap:16px;box-shadow:var(--shadow-card);
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.bonus-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-card-lg);}
+.bonus-mock{
+  width:84px;min-width:84px;aspect-ratio:0.72/1;border-radius:8px;
+  box-shadow:-6px 8px 16px -8px rgba(23,20,15,0.35);transform:rotate(-2deg);
+}
+.bonus-mock .ph-label{font-size:8px;}
+.bonus-body .tagnum{
+  font-size:11px;font-family:'Manrope',sans-serif;color:var(--terracotta);font-weight:800;
+  letter-spacing:0.4px;text-transform:uppercase;
+}
+.bonus-body h4{font-size:14.5px;margin:5px 0 6px;font-family:'Manrope',sans-serif;font-weight:700;color:var(--text);}
+.bonus-body .desc{font-size:12.5px;color:var(--text-mute);margin-bottom:8px;}
+.bonus-body .price-row{font-size:12.5px;display:flex;gap:8px;align-items:center;}
+.bonus-body .price-row .old{text-decoration:line-through;color:var(--text-mute);}
+.bonus-body .price-row .new{color:var(--green-cta);font-weight:800;text-transform:uppercase;letter-spacing:0.3px;}
+
+.value-total{
+  max-width:440px;margin:26px auto 0;background:#fff;border:1px solid var(--card-border);
+  border-radius:var(--radius-md);padding:28px 26px;box-shadow:var(--shadow-card);
+}
+.value-final{text-align:center;}
+.value-final .from{font-size:12px;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.5px;font-weight:700;}
+.value-final .bonus-old{
+  font-family:'Manrope',sans-serif;font-size:22px;font-weight:500;color:var(--text-mute);
+  text-decoration:line-through;margin:6px 0 4px;
+}
+.value-final .now{font-family:'Manrope',sans-serif;font-size:32px;color:var(--green-cta);font-weight:800;text-transform:uppercase;}
+
+/* ============================================================
+   14 — PLANOS
+   ============================================================ */
+.plans-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:860px;margin:44px auto 0;
+  align-items:start;
+}
+.plan-card{
+  background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-lg);
+  padding:28px 24px;position:relative;box-shadow:var(--shadow-card);
+  transition:transform .25s var(--ease);
+}
+.plan-card.featured{
+  border:2px solid var(--green-cta);box-shadow:0 26px 50px -20px rgba(32,183,90,0.4);
+  transform:scale(1.02);
+}
+.plan-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--green-cta);color:#fff;font-family:'Manrope',sans-serif;font-size:11px;
+  letter-spacing:0.5px;text-transform:uppercase;font-weight:800;padding:7px 18px;border-radius:100px;
+  box-shadow:0 8px 18px -6px rgba(32,183,90,0.6);
+}
+.plan-cover-img{
+  width:70%;max-width:210px;height:auto;display:block;margin:4px auto 20px;
+  border-radius:8px;filter:drop-shadow(-10px 16px 26px rgba(23,62,42,0.32));
+}
+.plan-name{font-family:'Manrope',sans-serif;text-transform:uppercase;font-size:12px;color:var(--text-mute);
+  letter-spacing:0.8px;font-weight:700;}
+.plan-title{font-family:'Manrope',sans-serif;font-weight:700;text-transform:uppercase;font-size:20px;margin:6px 0 16px;color:var(--text);}
+.plan-list{list-style:none;margin:0 0 20px;padding:0;font-size:13.5px;}
+.plan-list li{padding:6px 0;display:flex;gap:8px;align-items:flex-start;color:var(--text-soft);font-weight:500;}
+.plan-list li.no{color:#BEB4A5;text-decoration:line-through;font-weight:500;}
+.plan-list .x-mark{color:var(--terracotta);text-decoration:none;font-weight:700;}
+.plan-price-old{font-size:13px;color:var(--text-mute);text-decoration:line-through;font-family:'Manrope',sans-serif;font-weight:500;}
+.plan-price-new{font-family:'Manrope',sans-serif;font-size:32px;font-weight:800;color:var(--dark-green);margin:2px 0 16px;}
+.plan-card.featured .plan-price-new{color:var(--terracotta);}
+
+/* ============================================================
+   15 — PROVA SOCIAL
+   ============================================================ */
+.rating-panel{
+  max-width:780px;margin:40px auto 0;background:#fff;border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);padding:34px 36px;box-shadow:var(--shadow-card-lg);
+  display:flex;gap:40px;flex-wrap:wrap;align-items:center;
+}
+.rating-score{text-align:center;min-width:160px;}
+.rating-score .n{font-family:'Manrope',sans-serif;font-size:52px;font-weight:700;color:var(--text);line-height:1;}
+.rating-score .stars{color:var(--gold);font-size:20px;margin:8px 0 6px;letter-spacing:2px;}
+.rating-score .count{font-size:12.5px;color:var(--text-mute);font-weight:600;}
+.rating-bars{flex:1;min-width:240px;}
+.rbar-row{display:flex;align-items:center;gap:12px;font-size:12.5px;margin:8px 0;color:var(--text-mute);font-weight:700;}
+.rbar-row span:first-child{width:22px;}
+.rbar-track{flex:1;height:9px;background:#F3ECDD;border-radius:100px;overflow:hidden;}
+.rbar-fill{height:100%;background:linear-gradient(90deg,var(--gold),#F0C25E);border-radius:100px;}
+.placeholder-note{
+  text-align:center;font-size:12px;color:var(--text-mute);margin-top:14px;font-style:italic;
+}
+
+/* ============================================================
+   16 — DEPOIMENTOS
+   ============================================================ */
+.testi-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+}
+.testi-card{
+  background:#fff;border:1px solid var(--card-border);border-radius:16px;
+  padding:20px 22px;box-shadow:var(--shadow-card);
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.testi-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-card-lg);}
+.testi-top{display:flex;align-items:center;gap:12px;}
+.testi-avatar{
+  width:46px;height:46px;min-width:46px;flex-shrink:0;
+}
+.testi-avatar .ph-label{font-size:7px;}
+.testi-name{font-weight:800;font-size:14.5px;color:var(--text);}
+.testi-date{font-size:11.5px;color:var(--text-mute);margin-top:1px;}
+.testi-stars{color:var(--gold);font-size:13px;margin-top:10px;letter-spacing:1.5px;}
+.testi-text{font-size:13.5px;color:var(--text-soft);margin-top:10px;line-height:1.55;}
+.testi-footer{
+  display:flex;align-items:center;gap:18px;margin-top:14px;padding-top:12px;
+  border-top:1px solid var(--card-border);font-size:12px;color:var(--text-mute);font-weight:700;
+}
+.testi-footer .like{display:flex;align-items:center;gap:5px;color:var(--terracotta);}
+
+/* ============================================================
+   18 — FAQ
+   ============================================================ */
+.faq-list{max-width:720px;margin:36px auto 0;}
+.faq-item{
+  background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-sm);
+  margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow-card);
+}
+.faq-q{
+  width:100%;text-align:left;background:transparent;padding:18px 20px;
+  display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:15px;
+  color:var(--text);
+}
+.faq-q .chevron{transition:transform .22s var(--ease);color:var(--terracotta);font-size:14px;}
+.faq-item.open .chevron{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s var(--ease);}
+.faq-a-inner{padding:0 20px 18px;font-size:14px;color:var(--text-soft);}
+
+/* ============================================================
+   19 — CTA FINAL
+   ============================================================ */
+.final-cta{
+  background:linear-gradient(135deg,var(--terracotta),#C7431F);
+  color:#fff;text-align:center;padding:76px 0;
+}
+.final-cta h2{font-size:clamp(26px,5vw,42px);color:#fff;}
+.final-cta p{margin-top:14px;font-size:16px;color:rgba(255,255,255,0.95);max-width:520px;margin-left:auto;margin-right:auto;}
+.final-cta .btn-light{margin-top:26px;}
+.copyright-bar{
+  text-align:center;padding:22px 16px;font-size:12.5px;color:var(--text-mute);background:var(--bg);
+}
+
+/* ============================================================
+   20 — FOOTER
+   ============================================================ */
+footer{padding:40px 0 110px;text-align:center;}
+.footer-links{display:flex;justify-content:center;gap:18px;margin-top:10px;font-size:12.5px;color:var(--text-mute);}
+.footer-brand{font-family:'Manrope',sans-serif;text-transform:uppercase;font-weight:700;font-size:13px;color:var(--dark-green);}
+.footer-disclaimer{max-width:560px;margin:16px auto 0;font-size:11px;color:#A69C8B;line-height:1.5;}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width:860px){
+  .id-grid{grid-template-columns:1fr;}
+  .benefits-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .bonus-grid{grid-template-columns:1fr;}
+  .plans-grid{grid-template-columns:1fr;max-width:420px;}
+  .plan-card.featured{transform:none;order:-1;}
+  .testi-grid{grid-template-columns:1fr;}
+  .hero-visual{margin-top:26px;}
+  .stats-grid{grid-template-columns:repeat(3,1fr);}
+  .section{padding:56px 0;}
+  .rating-panel{padding:26px;justify-content:center;text-align:center;}
+  .rating-bars{width:100%;}
+}
+@media (max-width:480px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-visual{padding:0 4px;}
+  .hero h1{font-size:26px;letter-spacing:0;}
+}
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '989728143663966');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=989728143663966&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- UTMify -->
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+<!-- End UTMify -->
+
+</head>
+<body>
+
+<!-- ============================================================
+     01 — BARRA SUPERIOR (Promo Bar)
+     ============================================================ -->
+<div class="promo-bar" id="promoBar"></div>
+
+<!-- ============================================================
+     02/03 — HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-head fade-up">
+      <h1>100 CAFÉS DA MANHÃ SAUDÁVEIS<br><span class="hl">PARA QUEM QUER SUBSTITUIR O PÃO</span></h1>
+      <p class="hero-sub">Receitas doces e salgadas, rápidas e práticas, para você nunca mais acordar sem saber o que preparar.</p>
+    </div>
+
+    <div class="hero-visual fade-up">
+      <div class="hero-product-image ph-frame" id="imgHeroProduct">
+        <span class="ph-label"><b>Imagem hero</b>Substitua futuramente por uma versão em maior resolução, se desejar</span>
+      </div>
+    </div>
+
+    <div class="hero-tags fade-up">
+      <span class="hero-tag">Muitas opções prontas em até 5 minutos</span>
+    </div>
+
+    <div class="price-block fade-up">
+      <div class="price-old">De: R$ 129,90</div>
+      <div class="price-new"><span class="price-por">Por:</span> <span class="cur">R$</span>19,90</div>
+      <a href="#planos" class="btn btn-primary cta-basic">QUERO AS 100 RECEITAS →</a>
+      <div class="hero-cta-note">
+        <span>🔒 Compra segura</span>
+        <span>✓ Garantia</span>
+        <span>⚡ Acesso imediato</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — INDICADORES DE PROVA
+     ============================================================ -->
+<section class="stats-strip">
+  <div class="wrap">
+    <div class="stats-grid" id="statsGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 — SEÇÃO DO PROBLEMA
+     ============================================================ -->
+<section class="section">
+  <div class="wrap problem-head center fade-up">
+    <h2>VOCÊ AINDA COME SEMPRE<br><span class="accent-terra">A MESMA COISA</span><br>NO CAFÉ DA MANHÃ?</h2>
+    <p>A manhã costuma ser corrida. Sem ideias prontas, é fácil repetir pão, café e as mesmas opções todos os dias.</p>
+  </div>
+
+  <!-- ============================================================
+       06 — CARDS DE IDENTIFICAÇÃO
+       ============================================================ -->
+  <div class="wrap">
+    <div class="id-grid">
+      <div class="id-card fade-up"><span class="ico">🥖</span> Quero variar além do pão</div>
+      <div class="id-card fade-up"><span class="ico">🥗</span> Quero opções simples para comer melhor</div>
+      <div class="id-card fade-up"><span class="ico">💰</span> Quero ingredientes acessíveis</div>
+      <div class="id-card fade-up"><span class="ico">🤷</span> Nunca sei o que preparar</div>
+      <div class="id-card fade-up"><span class="ico">📖</span> Quero opções completas para variar</div>
+      <div class="id-card fade-up"><span class="ico">⏱</span> Quero receitas rápidas pela manhã</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       07 — TRANSIÇÃO
+       ============================================================ -->
+  <div class="transition">
+    <div class="tag">EXISTE UMA FORMA MAIS FÁCIL</div>
+    <div class="arrow">↓</div>
+  </div>
+
+  <!-- ============================================================
+       08 — BOX DE OFERTA
+       ============================================================ -->
+  <div class="wrap">
+    <div class="offer-box fade-up" id="offerBox"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     09 — APRESENTAÇÃO DO PRODUTO ("Por que este guia")
+     ============================================================ -->
+<section class="section present-section">
+  <div class="wrap">
+    <div class="center fade-up present-copy">
+      <div class="eyebrow">O MÉTODO</div>
+      <h2>POR QUE ESTE GUIA PODE<br><span class="accent-live">MUDAR SEU CAFÉ DA MANHÃ</span></h2>
+      <p class="sub">Um método completo, com receitas simples e um plano prático para você nunca mais ficar sem ideia pela manhã.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       10 — BENEFÍCIOS EM 6 CARDS
+       ============================================================ -->
+  <div class="wrap">
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 21l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+        <div class="benefit-num">01</div><h4>Saia da mesmice</h4><p>100 opções para variar durante semanas sem repetir.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21c8 0 12-4 12-12 0-2 0-4-2-6-6 0-10 4-10 10 0 2 0 4-2 6"/><path d="M6 21c0-4 2-7 5-9"/></svg></div>
+        <div class="benefit-num">02</div><h4>Ingredientes simples</h4><p>Receitas feitas com alimentos fáceis de encontrar.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h11"/><path d="M9 12h11"/><path d="M9 20h11"/><path d="M4 4l1.3 1.3L7.5 3"/><path d="M4 12l1.3 1.3 2.2-2.3"/><path d="M4 20l1.3 1.3 2.2-2.3"/></svg></div>
+        <div class="benefit-num">03</div><h4>Passo a passo completo</h4><p>Ingredientes, quantidades e modo de preparo detalhados.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <div class="benefit-num">04</div><h4>Receitas rápidas</h4><p>Várias opções pensadas para manhãs corridas.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 10.5h.01"/><path d="M15.5 10.5h.01"/><path d="M8 15c1.2 1.2 2.6 1.8 4 1.8s2.8-.6 4-1.8"/></svg></div>
+        <div class="benefit-num">05</div><h4>Sem complicação</h4><p>Não precisa saber cozinhar muito bem para preparar.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="9" rx="1.5"/><path d="M7 20h5"/><path d="M9.5 13v7"/><rect x="17" y="9" width="4" height="7" rx="1"/></svg></div>
+        <div class="benefit-num">06</div><h4>Acesse onde quiser</h4><p>Celular, tablet ou computador, a qualquer hora.</p>
+      </div>
+    </div>
+    <div class="center fade-up">
+      <a href="#planos" class="btn btn-primary cta-basic">QUERO AS 100 RECEITAS →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11 — GALERIA DE RECEITAS
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="gallery-head fade-up">
+      <div class="eyebrow">CARDÁPIO COMPLETO</div>
+      <h2>VEJA O QUE VOCÊ VAI<br><span class="accent-live">APRENDER A PREPARAR</span></h2>
+      <p>São 100 ideias para variar o café da manhã sem transformar sua rotina em uma complicação.</p>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+    <div class="gallery-more fade-up">E MUITO MAIS…</div>
+    <div class="center fade-up">
+      <a href="#planos" class="btn btn-primary cta-basic">QUERO TER ACESSO ÀS 100 RECEITAS →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12/13 — BÔNUS + VALOR TOTAL
+     ============================================================ -->
+<section class="section" style="background:#F1E9D6;">
+  <div class="wrap">
+    <div class="bonus-head fade-up">
+      <div class="eyebrow">EXCLUSIVO PARA QUEM ENTRAR HOJE</div>
+      <h2>HOJE VOCÊ TAMBÉM LEVA<br><span class="accent-terra">TODOS ESTES EXTRAS</span></h2>
+    </div>
+
+    <div class="bonus-grid" id="bonusGrid"></div>
+
+    <div class="value-total fade-up" id="valueTotal"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     14 — ESCOLHA SEU PLANO
+     ============================================================ -->
+<section class="section" id="planos">
+  <div class="wrap center fade-up">
+    <h2>ESCOLHA SEU <span class="accent-terra">PLANO</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="wrap">
+    <div class="plans-grid" id="plansGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     15 — PROVA SOCIAL (redesenhada)
+     ============================================================ -->
+<section class="section" style="background:#F1E9D6;">
+  <div class="wrap center fade-up">
+    <h2 id="socialHeadline">QUEM JÁ TESTOU<br><span class="accent-terra">ESTÁ APROVANDO</span></h2>
+    <p id="socialSub" style="margin-top:14px;font-size:15px;"></p>
+    <div class="rating-panel" id="ratingPanel"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     16 — DEPOIMENTOS (redesenhados)
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <!-- INSERIR DEPOIMENTOS REAIS AQUI ANTES DA PUBLICAÇÃO. Nunca publicar depoimentos fictícios como reais. -->
+    <div class="testi-grid" id="testiGrid"></div>
+  </div>
+
+  <!-- ============================================================
+       17 — CTA APÓS DEPOIMENTOS
+       ============================================================ -->
+  <div class="wrap center fade-up" style="margin-top:38px;">
+    <a href="#planos" class="btn btn-primary cta-basic">QUERO AS 100 RECEITAS AGORA →</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     18 — FAQ
+     ============================================================ -->
+<section class="section" style="background:#F1E9D6;">
+  <div class="wrap center fade-up">
+    <h2>DÚVIDAS FREQUENTES</h2>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     19 — CTA FINAL
+     ============================================================ -->
+<section class="final-cta">
+  <div class="wrap fade-up">
+    <h2>CHEGA DE ACORDAR<br>SEM SABER O QUE COMER.</h2>
+    <p>Tenha 100 opções prontas para consultar sempre que quiser variar.</p>
+    <a href="#planos" class="btn btn-light cta-basic">🔥 QUERO AS 100 RECEITAS AGORA</a>
+  </div>
+</section>
+
+<div class="copyright-bar" id="copyrightLine"></div>
+
+<script>
+/* ============================================================
+   CONFIGURAÇÕES CENTRAIS — altere aqui, nada mais no código
+   ============================================================ */
+const CONFIG = {
+  // Preços
+  PRICE_BASIC_OLD: 129.90,
+  PRICE_BASIC_NEW: 19.90,
+  PRICE_PREMIUM_OLD: 129.90,
+  PRICE_PREMIUM_NEW: 29.90,
+
+  // Checkout — trocar pelos links reais de Hotmart/Wiapy
+  CHECKOUT_BASIC_URL: "https://pay.wiapy.com/ANQ44AjCtTL4",
+  CHECKOUT_PREMIUM_URL: "https://pay.wiapy.com/6a7beb569df1dadce85c8b50",
+
+  // Promoção real (deixe null se não houver data confirmada)
+  PROMO_END_DATE: null,
+
+  // Prova social — número real de clientes.
+  TOTAL_CUSTOMERS: 3526,
+
+  // Avaliações reais.
+  AVERAGE_RATING: 4.9,
+  TOTAL_REVIEWS: 3087,
+  RATING_BREAKDOWN: {        // percentuais 0–100, usados só para o tamanho visual das barras
+    5: 88, 4: 9, 3: 2, 2: 0.7, 1: 0.3
+  },
+
+  YEAR: new Date().getFullYear()
+};
+
+/* ============================================================
+   IMAGENS — caminhos centralizados.
+   Basta colocar o arquivo real no caminho indicado que ele
+   substitui automaticamente o placeholder (onload/onerror abaixo).
+   ============================================================ */
+const IMAGES = {
+  heroProduct: "images/hero/hero-produto.webp",
+
+  recipes: {
+    "01": { file: "images/recipes/01-omelete-caprese.webp", name: "Omelete Caprese", alt: "Omelete caprese com tomate, queijo e manjericão" },
+    "02": { file: "images/recipes/02-panqueca-banana-aveia.webp", name: "Panqueca de Banana e Aveia", alt: "Panqueca de banana e aveia para café da manhã" },
+    "03": { file: "images/recipes/03-omelete-recheado.webp", name: "Omelete Recheado", alt: "Omelete recheado servido em prato branco" },
+    "04": { file: "images/recipes/04-vitamina-morango.webp", name: "Vitamina de Morango", alt: "Vitamina de morango em copo de vidro" },
+    "05": { file: "images/recipes/05-crepioca-frango.webp", name: "Crepioca de Frango", alt: "Crepioca recheada com frango desfiado" },
+    "06": { file: "images/recipes/06-caneca-banana-cacau.webp", name: "Caneca de Banana e Cacau", alt: "Bolo de caneca de banana com cacau" },
+    "07": { file: "images/recipes/07-cuscuz-cremoso.webp", name: "Cuscuz Cremoso", alt: "Cuscuz cremoso servido em prato" },
+    "08": { file: "images/recipes/08-panqueca-maca-canela.webp", name: "Panqueca de Maçã e Canela", alt: "Panqueca de maçã com canela" },
+    "09": { file: "images/recipes/09-ovos-cremosos.webp", name: "Ovos Cremosos", alt: "Ovos cremosos com ervas frescas" },
+    "10": { file: "images/recipes/10-cuscuz-queijo.webp", name: "Cuscuz com Queijo", alt: "Cuscuz com queijo derretido" },
+    "11": { file: "images/recipes/11-tostada-frigideira.webp", name: "Tostada de Frigideira", alt: "Tostada preparada na frigideira" },
+    "12": { file: "images/recipes/12-bolinho-milho-queijo.webp", name: "Bolinho de Milho e Queijo", alt: "Bolinho de milho com queijo" }
+  },
+
+  bonuses: {
+    sobremesas: "images/bonuses/sobremesas.webp",
+    planejamento: "images/bonuses/planejamento.webp",
+    lanches: "images/bonuses/lanches.webp",
+    compras: "images/bonuses/lista-compras.webp",
+    substituicoes: "images/bonuses/substituicoes.webp"
+  }
+};
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function brl(v){
+  return v.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+
+// Cria a tag <img> que fica escondida atrás do label até o arquivo real existir.
+function phImg(src, alt){
+  return `<img src="${src}" alt="${alt}" loading="lazy"
+    onload="this.parentElement.classList.add('loaded')"
+    onerror="this.style.display='none'">`;
+}
+
+/* Injeta <img> reais dentro dos placeholders fixos do HTML (hero, apresentação) */
+function wireStaticImage(containerId, src, alt){
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.insertAdjacentHTML('afterbegin', phImg(src, alt));
+}
+
+/* ============================================================
+   01 — PROMO BAR
+   ============================================================ */
+(function renderPromoBar(){
+  const el = document.getElementById('promoBar');
+  const today = new Date().toLocaleDateString('pt-BR'); // sempre a data de hoje, calculada no navegador de quem acessa
+  el.textContent = `🔥 PROMOÇÃO VÁLIDA SÓ HOJE - ${today} 🔥`;
+})();
+
+/* ============================================================
+   HERO / APRESENTAÇÃO — injeta imagens reais nos placeholders fixos
+   ============================================================ */
+(function wireHeroAndPresentImages(){
+  wireStaticImage('imgHeroProduct', IMAGES.heroProduct, '100 Cafés da Manhã Sem Pão');
+})();
+
+/* ============================================================
+   03 — Preço no hero (dinâmico a partir da CONFIG)
+   ============================================================ */
+(function renderHeroPrice(){
+  document.querySelectorAll('.price-old').forEach(el=>{
+    if (el.closest('.hero')) el.textContent = `De: R$ ${brl(CONFIG.PRICE_BASIC_OLD)}`;
+  });
+  document.querySelectorAll('.price-new').forEach(el=>{
+    if (el.closest('.hero')) el.innerHTML = `Por: <span class="cur">R$</span>${brl(CONFIG.PRICE_BASIC_NEW)}`;
+  });
+})();
+
+/* ============================================================
+   04 — INDICADORES
+   ============================================================ */
+(function renderStats(){
+  const first = CONFIG.TOTAL_CUSTOMERS
+    ? { count: CONFIG.TOTAL_CUSTOMERS, suffix: '+', lbl: 'CLIENTES' }
+    : { num: '100%', lbl: 'ACESSO DIGITAL' };
+
+  const stats = [
+    first,
+    { count: 100, suffix: '', lbl: 'RECEITAS' },
+    { num: '7 DIAS', lbl: 'DE GARANTIA' }
+  ];
+
+  document.getElementById('statsGrid').innerHTML = stats.map(s => {
+    if (s.count !== undefined) {
+      return `<div class="stat-box"><div class="num" data-count="${s.count}" data-suffix="${s.suffix}">0${s.suffix}</div><div class="lbl">${s.lbl}</div></div>`;
+    }
+    return `<div class="stat-box"><div class="num">${s.num}</div><div class="lbl">${s.lbl}</div></div>`;
+  }).join('');
+})();
+
+/* ============================================================
+   Contador animado das estatísticas — dispara ao entrar na tela
+   ============================================================ */
+(function countUpStats(){
+  const strip = document.querySelector('.stats-strip');
+  if (!strip) return;
+  let played = false;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !played) {
+        played = true;
+        document.querySelectorAll('.stat-box .num[data-count]').forEach(el => {
+          const target = parseInt(el.dataset.count, 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1100;
+          const start = performance.now();
+          function tick(now){
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.round(target * eased);
+            el.textContent = value.toLocaleString('pt-BR') + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+        io.disconnect();
+      }
+    });
+  }, {threshold:0.4});
+  io.observe(strip);
+})();
+
+/* ============================================================
+   08 — OFERTA
+   ============================================================ */
+(function renderOffer(){
+  let deadlineHtml = '';
+  if (CONFIG.PROMO_END_DATE) {
+    const d = new Date(CONFIG.PROMO_END_DATE);
+    deadlineHtml = `<p style="margin-top:14px;font-weight:700;color:#fff;">Condição disponível até ${d.toLocaleDateString('pt-BR')}.</p>`;
+  }
+  document.getElementById('offerBox').innerHTML = `
+    <h3>🔥 CONDIÇÃO ESPECIAL DE LANÇAMENTO</h3>
+    <p>Tenha acesso ao guia completo e aos materiais extras disponíveis nesta oferta.</p>
+    ${deadlineHtml}
+  `;
+})();
+
+/* ============================================================
+   11 — GALERIA DE RECEITAS (12 receitas, dados reais do produto)
+   ============================================================ */
+const RECIPES = [
+  {key:"01", kcal:175, time:"8 min"},
+  {key:"02", kcal:230, time:"12 min", protein:"11g"},
+  {key:"03", kcal:210, time:"10 min", protein:"15g"},
+  {key:"04", kcal:180, time:"5 min"},
+  {key:"05", kcal:230, time:"10 min", protein:"14g"},
+  {key:"06", kcal:260, time:"5 min"},
+  {key:"07", kcal:190, time:"12 min"},
+  {key:"08", kcal:220, time:"12 min"},
+  {key:"09", kcal:160, time:"8 min", protein:"13g"},
+  {key:"10", kcal:200, time:"10 min"},
+  {key:"11", kcal:210, time:"6 min"},
+  {key:"12", kcal:230, time:"15 min"}
+];
+
+(function renderGallery(){
+  document.getElementById('galleryGrid').innerHTML = RECIPES.map(r => {
+    const img = IMAGES.recipes[r.key];
+    return `
+    <div class="recipe-card fade-up">
+      <div class="ph-frame recipe-photo">
+        ${phImg(img.file, img.alt)}
+        <span class="ph-label"><b>Substituir</b>${img.alt}</span>
+        <span class="recipe-badge">${r.kcal} kcal</span>
+      </div>
+      <div class="recipe-info">
+        <div class="name">${img.name}</div>
+        <div class="meta"><span>⏱ ${r.time}</span>${r.protein ? `<span>💪 ${r.protein}</span>` : ''}</div>
+      </div>
+    </div>
+  `;
+  }).join('');
+})();
+
+/* ============================================================
+   12/13 — BÔNUS + VALOR TOTAL
+   ============================================================ */
+const BONUSES = [
+  {tag:"BÔNUS 1", name:"30 Sobremesas Sem Açúcar Adicionado", desc:"Opções doces para fechar o dia sem culpa.", value:19.90, img:IMAGES.bonuses.sobremesas, alt:"Capa do bônus 30 Sobremesas Sem Açúcar Adicionado"},
+  {tag:"BÔNUS 2", name:"Planejamento de Café da Manhã — 30 Dias", desc:"Um plano pronto para não pensar todo dia.", value:19.90, img:IMAGES.bonuses.planejamento, alt:"Capa do bônus Planejamento de Café da Manhã 30 Dias"},
+  {tag:"BÔNUS 3", name:"30 Lanches Rápidos", desc:"Opções práticas para os intervalos do dia.", value:19.90, img:IMAGES.bonuses.lanches, alt:"Capa do bônus 30 Lanches Rápidos"},
+  {tag:"BÔNUS 4", name:"Lista de Compras Econômica da Semana", desc:"Facilita as compras sem gastar mais que o necessário.", value:19.90, img:IMAGES.bonuses.compras, alt:"Capa do bônus Lista de Compras Econômica da Semana"},
+  {tag:"BÔNUS 5", name:"Tabela de Substituições", desc:"Troque ingredientes sem perder o resultado.", value:19.90, img:IMAGES.bonuses.substituicoes, alt:"Capa do bônus Tabela de Substituições"}
+];
+
+(function renderBonuses(){
+  document.getElementById('bonusGrid').innerHTML = BONUSES.map(b => `
+    <div class="bonus-card fade-up">
+      <div class="ph-frame bonus-mock">
+        ${phImg(b.img, b.alt)}
+        <span class="ph-label"><b>Substituir</b>${b.alt}</span>
+      </div>
+      <div class="bonus-body">
+        <div class="tagnum">🎁 ${b.tag}</div>
+        <h4>${b.name}</h4>
+        <div class="desc">${b.desc}</div>
+        <div class="price-row"><span class="old">R$ ${brl(b.value)}</span><span class="new">Hoje incluído</span></div>
+      </div>
+    </div>
+  `).join('');
+
+  const bonusTotal = BONUSES.reduce((acc,b)=>acc+b.value, 0);
+
+  document.getElementById('valueTotal').innerHTML = `
+    <div class="value-final">
+      <div class="from">Valor total dos bônus</div>
+      <div class="bonus-old">R$ ${brl(bonusTotal)}</div>
+      <div class="now">Hoje grátis!</div>
+    </div>
+  `;
+})();
+
+/* ============================================================
+   14 — PLANOS
+   ============================================================ */
+(function renderPlans(){
+  document.getElementById('plansGrid').innerHTML = `
+    <div class="plan-card fade-up">
+      <img class="plan-cover-img" src="images/mockups/plano-basico.webp" alt="Capa do produto 100 Cafés da Manhã Sem Pão">
+      <div class="plan-name">Plano básico</div>
+      <div class="plan-title">100 Cafés da Manhã Sem Pão</div>
+      <ul class="plan-list">
+        <li>✓ 100 receitas</li>
+        <li>✓ Calorias aproximadas</li>
+        <li>✓ Proteínas aproximadas</li>
+        <li>✓ Tempo de preparo</li>
+        <li>✓ Acesso digital</li>
+        <li>✓ Garantia</li>
+        <li class="no"><span class="x-mark">✗</span> Acesso vitalício + Atualizações</li>
+        <li class="no"><span class="x-mark">✗</span> 🎁 30 Sobremesas Sem Açúcar Adicionado</li>
+        <li class="no"><span class="x-mark">✗</span> 🎁 Planejamento de Café da Manhã — 30 Dias</li>
+        <li class="no"><span class="x-mark">✗</span> 🎁 30 Lanches Rápidos</li>
+        <li class="no"><span class="x-mark">✗</span> 🎁 Lista de Compras Econômica da Semana</li>
+        <li class="no"><span class="x-mark">✗</span> 🎁 Tabela de Substituições</li>
+      </ul>
+      <div class="plan-price-old">De: R$ ${brl(CONFIG.PRICE_BASIC_OLD)}</div>
+      <div class="plan-price-new">R$ ${brl(CONFIG.PRICE_BASIC_NEW)}</div>
+      <a href="${CONFIG.CHECKOUT_BASIC_URL}" id="checkoutBasicBtn" class="btn btn-outline btn-block cta-basic">QUERO O GUIA</a>
+    </div>
+
+    <div class="plan-card featured fade-up">
+      <div class="plan-badge">★ MAIS ESCOLHIDO</div>
+      <img class="plan-cover-img" src="images/mockups/plano-premium.webp" alt="Composição do plano completo 100 Cafés da Manhã Sem Pão com todos os bônus">
+      <div class="plan-name">Plano completo</div>
+      <div class="plan-title">Plano Completo + Bônus</div>
+      <ul class="plan-list">
+        <li>✓ 100 Cafés da Manhã Sem Pão (100 receitas completas)</li>
+        <li>✓ Calorias aproximadas por receita</li>
+        <li>✓ Proteínas aproximadas por receita</li>
+        <li>✓ Tempo de preparo de cada receita</li>
+        <li>✓ Acesso digital imediato</li>
+        <li>✓ Acesso vitalício + Atualizações</li>
+        <li>🎁 30 Sobremesas Sem Açúcar Adicionado</li>
+        <li>🎁 Planejamento de Café da Manhã — 30 Dias</li>
+        <li>🎁 30 Lanches Rápidos</li>
+        <li>🎁 Lista de Compras Econômica da Semana</li>
+        <li>🎁 Tabela de Substituições</li>
+        <li>✓ Garantia</li>
+      </ul>
+      <div class="plan-price-old">De: R$ ${brl(CONFIG.PRICE_PREMIUM_OLD)}</div>
+      <div class="plan-price-new">R$ ${brl(CONFIG.PRICE_PREMIUM_NEW)}</div>
+      <a href="${CONFIG.CHECKOUT_PREMIUM_URL}" id="checkoutPremiumBtn" class="btn btn-primary btn-block cta-premium">QUERO O PLANO COMPLETO</a>
+    </div>
+  `;
+})();
+
+/* ============================================================
+   15 — PROVA SOCIAL (painel de avaliações redesenhado)
+   ============================================================ */
+(function renderRating(){
+  const hasData = CONFIG.AVERAGE_RATING && CONFIG.TOTAL_REVIEWS;
+
+  if (CONFIG.TOTAL_CUSTOMERS) {
+    document.getElementById('socialHeadline').innerHTML =
+      `${CONFIG.TOTAL_CUSTOMERS.toLocaleString('pt-BR')} PESSOAS JÁ<br><span class="accent-terra">TRANSFORMARAM SUA ALIMENTAÇÃO</span>`;
+    document.getElementById('socialSub').textContent =
+      'Resultados de quem colocou as receitas em prática no dia a dia.';
+  }
+
+  if (!hasData) {
+    document.getElementById('ratingPanel').innerHTML = `
+      <!-- INSERIR DADOS REAIS AQUI ANTES DA PUBLICAÇÃO (AVERAGE_RATING, TOTAL_REVIEWS, RATING_BREAKDOWN) -->
+      <div class="rating-score">
+        <div class="n">—</div>
+        <div class="stars">★★★★★</div>
+        <div class="count">DADOS DE AVALIAÇÃO A INSERIR</div>
+      </div>
+      <div class="rating-bars">
+        ${[5,4,3,2,1].map(n => `
+          <div class="rbar-row">
+            <span>${n}★</span>
+            <div class="rbar-track"><div class="rbar-fill" style="width:0%;"></div></div>
+          </div>
+        `).join('')}
+        <p class="placeholder-note">Este painel exibirá a nota média, estrelas e distribuição real assim que os dados de avaliação forem inseridos na CONFIG.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const bars = [5,4,3,2,1].map(n => `
+    <div class="rbar-row">
+      <span>${n}★</span>
+      <div class="rbar-track"><div class="rbar-fill" style="width:${CONFIG.RATING_BREAKDOWN[n] || 0}%;"></div></div>
+    </div>
+  `).join('');
+
+  document.getElementById('ratingPanel').innerHTML = `
+    <div class="rating-score">
+      <div class="n">${CONFIG.AVERAGE_RATING}</div>
+      <div class="stars">★★★★★</div>
+      <div class="count">${CONFIG.TOTAL_REVIEWS.toLocaleString('pt-BR')} avaliações</div>
+    </div>
+    <div class="rating-bars">${bars}</div>
+  `;
+})();
+
+/* ============================================================
+   16 — DEPOIMENTOS (estrutura de dados fácil de preencher)
+   ============================================================ */
+const testimonials = [
+  {
+    name: "Fernanda Costa",
+    date: "22 de fevereiro de 2026",
+    avatar: "images/testimonials/fernanda-costa.webp",
+    rating: 5,
+    text: "A crepioca de frango fez tanto sucesso aqui em casa que no outro dia já estavam me pedindo pra preparar de novo!",
+    likes: 107
+  },
+  {
+    name: "Luciana Ferreira",
+    date: "3 de março de 2026",
+    avatar: "images/testimonials/luciana-ferreira.webp",
+    rating: 5,
+    text: "Gostei demais! Tem muita opção diferente e está facilitando bastante minha rotina na cozinha. Pelo preço, achei que vale muito a pena.",
+    likes: 94
+  },
+  {
+    name: "Marcos Vinícius",
+    date: "14 de janeiro de 2026",
+    avatar: "images/testimonials/marcos-vinicius.webp",
+    rating: 5,
+    text: "O que mais gostei é que não são aquelas receitas de dieta complicadas. São opções simples, rápidas e feitas com ingredientes que normalmente já tenho em casa.",
+    likes: 91
+  },
+  {
+    name: "Amanda Rodrigues",
+    date: "9 de fevereiro de 2026",
+    avatar: "images/testimonials/amanda-rodrigues.webp",
+    rating: 5,
+    text: "Eu não fazia ideia de que dava pra variar tanto o café da manhã. Já preparei 4 receitas e gostei de todas até agora!",
+    likes: 138
+  },
+  {
+    name: "Diego Moreira",
+    date: "28 de janeiro de 2026",
+    avatar: "images/testimonials/diego-moreira.webp",
+    rating: 5,
+    text: "Estava tentando comer menos pão, mas sempre ficava sem ideia do que colocar no lugar. As receitas rápidas do material me ajudaram muito nisso.",
+    likes: 81
+  },
+  {
+    name: "Renata Oliveira",
+    date: "16 de março de 2026",
+    avatar: "images/testimonials/renata-oliveira.webp",
+    rating: 5,
+    text: "Já comecei testando a Vitamina de Morango com Banana e adorei! Ficou muito gostosa e é uma ótima opção pra quem quer comer bem sem gastar muito no café da manhã.",
+    likes: 124
+  }
+];
+
+(function renderTestimonials(){
+  document.getElementById('testiGrid').innerHTML = testimonials.map((t, i) => {
+    const n = String(i+1).padStart(2,'0');
+    const name = t.name || `CLIENTE REAL ${n}`;
+    const date = t.date || 'Data opcional';
+    const text = t.text || 'INSERIR DEPOIMENTO REAL AQUI.';
+    const stars = '★'.repeat(t.rating || 5);
+    const avatarSrc = t.avatar;
+    const likes = t.likes || '';
+    return `
+    <!-- INSERIR DEPOIMENTO REAL ${n} AQUI (name, date, avatar, rating, text, likes) -->
+    <div class="testi-card fade-up">
+      <div class="testi-top">
+        <div class="ph-frame round testi-avatar">
+          ${phImg(avatarSrc, `Foto do cliente ${name}`)}
+          <span class="ph-label">FOTO</span>
+        </div>
+        <div>
+          <div class="testi-name">${name}</div>
+          <div class="testi-date">${date}</div>
+        </div>
+      </div>
+      <div class="testi-stars">${stars}</div>
+      <div class="testi-text">"${text}"</div>
+      <div class="testi-footer">
+        <span class="like">❤️ ${likes}</span>
+        <span>Curtir</span>
+        <span>Comentar</span>
+      </div>
+    </div>
+  `;
+  }).join('');
+})();
+
+/* ============================================================
+   18 — FAQ
+   ============================================================ */
+const FAQ_ITEMS = [
+  {q:"Como vou receber o material?", a:"Logo após a confirmação do pagamento, você recebe um e-mail com o acesso imediato ao material completo."},
+  {q:"O material pode ser acessado pelo celular?", a:"Sim. Você pode acessar pelo celular, tablet ou computador, sempre que quiser consultar as receitas."},
+  {q:"Preciso saber cozinhar?", a:"Não. As receitas foram pensadas para serem simples e fáceis de seguir, mesmo para quem tem pouca prática na cozinha."},
+  {q:"As receitas usam ingredientes difíceis?", a:"Não. Priorizamos ingredientes simples e fáceis de encontrar no dia a dia."},
+  {q:"Tem receitas doces e salgadas?", a:"Sim, o guia reúne 100 opções entre receitas doces e salgadas para variar sua manhã."},
+  {q:"As calorias são exatas?", a:"Os valores nutricionais são estimativas e podem variar de acordo com quantidades, marcas e substituições utilizadas."},
+  {q:"Quanto tempo tenho de acesso?", a:"O acesso é digital e pode ser consultado sempre que você quiser, conforme as condições da oferta escolhida."},
+  {q:"Como funciona a garantia?", a:"Você tem um período de garantia para experimentar o material com segurança."}
+];
+
+(function renderFaq(){
+  const el = document.getElementById('faqList');
+  el.innerHTML = FAQ_ITEMS.map((item, i) => `
+    <div class="faq-item" data-idx="${i}">
+      <button class="faq-q" type="button">
+        <span>${item.q}</span>
+        <span class="chevron">▾</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">${item.a}</div></div>
+    </div>
+  `).join('');
+
+  el.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+      el.querySelectorAll('.faq-item').forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+
+/* ============================================================
+   COPYRIGHT — nome do produto + ano dinâmico
+   ============================================================ */
+(function renderCopyright(){
+  const el = document.getElementById('copyrightLine');
+  if (!el) return;
+  el.textContent = `© ${CONFIG.YEAR} — 100 Cafés da Manhã Sem Pão. Todos os direitos reservados.`;
+})();
+
+/* ============================================================
+   MICROINTERAÇÕES — fade-up discreto
+   ============================================================ */
+(function fadeUpObserver(){
+  const els = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+  els.forEach(el => io.observe(el));
+})();
+
+/* ============================================================
+   CHECKOUT LINKS — plano básico vs premium
+   ============================================================ */
+(function wireCheckoutLinks(){
+  document.querySelectorAll('.cta-basic').forEach(a => {
+    if (a.getAttribute('href') === '#planos') return; // âncora de rolagem, mantém
+    a.href = CONFIG.CHECKOUT_BASIC_URL;
+  });
+  document.querySelectorAll('.cta-premium').forEach(a => {
+    a.href = CONFIG.CHECKOUT_PREMIUM_URL;
+  });
+})();
+
+/* ============================================================
+   EVENTO DE CHECKOUT — dispara InitiateCheckout no Meta Pixel
+   quando a pessoa realmente clica para pagar (não nas âncoras
+   internas que só rolam até #planos)
+   ============================================================ */
+(function wireCheckoutEvents(){
+  const basicBtn = document.getElementById('checkoutBasicBtn');
+  const premiumBtn = document.getElementById('checkoutPremiumBtn');
+  if (basicBtn) {
+    basicBtn.addEventListener('click', () => {
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: '100 Cafés da Manhã Sem Pão — Plano Básico',
+          value: CONFIG.PRICE_BASIC_NEW,
+          currency: 'BRL'
+        });
+      }
+    });
+  }
+  if (premiumBtn) {
+    premiumBtn.addEventListener('click', () => {
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: '100 Cafés da Manhã Sem Pão — Plano Completo',
+          value: CONFIG.PRICE_PREMIUM_NEW,
+          currency: 'BRL'
+        });
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
